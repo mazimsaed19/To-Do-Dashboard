@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container card */
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  max-width: 40rem; /* 640px */
+  width: 100%;
+  gap: 2rem;
+}
+
+/* Inputs */
+.task-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #111;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.task-input::placeholder {
+  color: rgba(17, 17, 17, 0.5);
+  font-style: italic;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: #4ade80; /* green-400 */
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Add button */
+.add-button {
+  background-color: #166534; /* green-800 */
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 1.5px solid transparent;
+  padding: 0.75rem 2.5rem;
+  font-weight: 600;
+  transition: border-color 0.25s ease, background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+  user-select: none;
+}
+
+.add-button:hover {
+  background-color: #4ade80; /* green-400 */
+  border-color: #4ade80;
+  transform: scale(1.05);
+}
+
+.add-button:active {
+  transform: scale(0.95);
+}
+
+/* Task list container */
+.task-list {
+  max-height: 22.5rem; /* 360px */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+  width: 100%;
+}
+
+/* Task item */
+.task-item {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Task text */
+.task-item p {
+  margin: 0;
+  font-weight: 600;
+  color: white;
+}
+
+/* Due date */
+.task-item small {
+  color: #a0f0a0;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Delete button */
+.task-item button {
+  background-color: #dc2626; /* red-600 */
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.task-item button:hover {
+  background-color: #b91c1c; /* red-700 */
+  transform: scale(1.1);
+}
+
+.task-item button:active {
+  transform: scale(0.95);
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  .card {
+    background-color: #d9f99d;
+    color: #166534;
+    border-color: #a3b18a;
+    box-shadow: 0 8px 24px rgba(163, 177, 138, 0.5);
+  }
+
+  .task-input {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+  }
+
+  .task-input::placeholder {
+    color: #4caf50;
+  }
+
+  .task-input:focus {
+    background-color: #bbf7d0;
+    border-color: #4caf50;
+  }
+
+  .add-button {
+    background-color: #bbf7d0;
+    color: #166534;
+  }
+
+  .add-button:hover {
+    background-color: #4caf50;
+    border-color: #4caf50;
+  }
+
+  .task-item {
+    background-color: #bbf7d0;
+    border-color: #9ace81;
+    color: #166534;
+    box-shadow: 0 8px 20px rgba(154, 206, 129, 0.5);
+  }
+
+  .task-item:hover {
+    box-shadow: 0 12px 30px rgba(154, 206, 129, 0.7);
+  }
+
+  .task-item button {
+    background-color: #dc2626;
+    color: white;
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.4);
+  }
+
+  .task-item button:hover {
+    background-color: #b91c1c;
+  }
+}

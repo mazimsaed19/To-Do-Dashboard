@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root font and smoothing */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Card container — narrower and slightly shorter vertically */
+.card {
+  max-width: 260px;          /* narrower horizontally */
+  padding: 1.5rem 1rem;      /* less vertical padding for shorter height */
+  margin: 2rem auto;
+  background-color: rgba(255, 255, 255, 0.12);
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  min-height: 420px;         /* slightly shorter height */
+}
+
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: #d9f99d; /* lime-300 */
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* Input styling */
+.card input[type="text"] {
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.85rem;          /* smaller font */
+  border-radius: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #111;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.card input[type="text"]::placeholder {
+  color: rgba(17, 17, 17, 0.55);
+  font-size: 0.8rem;
+  font-style: italic;
+  text-align: center;
+  letter-spacing: 0.03em;
+  opacity: 0.7;
+}
+
+.card input[type="text"]:focus {
+  outline: none;
+  border-color: #4ade80; /* green-400 */
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+/* Button — smaller, centered and full width */
+button {
+  width: 60%;                /* smaller button */
+  border-radius: 0.45rem;
+  border: 1px solid transparent;
+  padding: 0.45em 1em;       /* smaller padding */
+  font-size: 0.85rem;        /* smaller text */
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #166534; /* green-800 */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.25s ease;
+  align-self: center;
+  box-shadow: 0 3px 8px rgba(22, 101, 52, 0.7);
+}
+
+button:hover {
+  background-color: #4ade80; /* green-400 */
+  border-color: #4ade80;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.9);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Task list container — nicely spaced below the button */
+.task-list {
+  margin-top: 1rem;
+  width: 100%;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-right: 0.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.task-item:hover {
+  background-color: rgba(74, 222, 128, 0.3);
+  transform: scale(1.02);
+}
+
+.task-item button {
+  background-color: #dc2626; /* red-600 */
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.7);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.task-item button:hover {
+  background-color: #b91c1c; /* red-700 */
+  transform: scale(1.1);
+}
+
+/* Link styles */
+a {
+  font-weight: 500;
+  color: #a5d6a7; /* lighter green */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4caf50; /* green-600 */
+}
+
+/* Body resets */
+body {
+  margin: 0;
+}
+
+/* Light mode overrides */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #f9fafb; /* gray-50 */
+    color: #111;
+  }
+  .card {
+    background-color: #d9f99d; /* lime-300 */
+    color: #111;
+  }
+  button {
+    background-color: #bbf7d0; /* green-200 */
+    color: #166534; /* green-800 */
+  }
+  a:hover {
+    color: #166534;
+  }
+  h1 {
+    color: #166534;
+  }
+
+  .card input[type="text"] {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+  }
+
+  .card input[type="text"]:focus {
+    background-color: #bbf7d0;
+    border-color: #4caf50;
+  }
+
+  .card input[type="text"]::placeholder {
+    color: #4caf50;
+  }
+
+  .task-item {
+    background-color: #d9f99d;
+    border-color: #a3b18a;
+    color: #166534;
+  }
+
+  .task-item:hover {
+    background-color: #a3b18a;
+  }
+
+  .task-item button {
+    background-color: #b91c1c;
+    box-shadow: none;
+  }
+
+  .task-item button:hover {
+    background-color: #7f1d1d;
+  }
+}
